@@ -1,0 +1,334 @@
+.background_image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(63, 81, 85, 0.7), rgba(30, 49, 53, 0.7)), url('images/Texture_1 1.svg');
+    background-size: cover;
+}
+
+/* .book {
+    min-height: 500px;
+    position: relative;
+    margin: auto;
+    margin-top: 95px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    position: absolute;
+    bottom: 0;
+    left: 120px;
+    z-index: 2;
+} */
+
+@-webkit-keyframes flip-right-to-left {
+    0% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+
+    100% {
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+    }
+}
+
+@keyframes flip-right-to-left {
+    0% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+
+    100% {
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+    }
+}
+
+@-webkit-keyframes flip-left-to-right {
+    0% {
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+    }
+
+    100% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+}
+
+@keyframes flip-left-to-right {
+    0% {
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+    }
+
+    100% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+}
+
+.flip-left-to-right {
+    -webkit-animation: flip-left-to-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    animation: flip-left-to-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+.flip-right-to-left {
+    -webkit-animation: flip-right-to-left 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    animation: flip-right-to-left 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: TTLimesSlab;
+    background-color: black;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #3F5155 1.76%, #1E3135 79.31%);
+    /* background: url(http://www.stariki.team/image/0022_cssbook/zamok.jpg) no-repeat; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#pressLeft {
+    float: left;
+}
+
+#pressRight {
+    float: right;
+}
+
+a {
+    display: block;
+    font-size: 36px;
+    width: 140px;
+    text-align: center;
+}
+
+a:active,
+a:visited,
+a:link {
+    color: white;
+    border: 2px solid white;
+    transition: .5s;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0b0047;
+    border: 2px solid #0b0047;
+    background-color: white;
+    transition: .5s;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+#book_environment {
+    /*padding: 60px 0px 0px 0px;*/
+    width: 1140px;
+    height: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transform: rotateX(5deg);
+    transform: rotateX(5deg);
+}
+
+img.picture_preloader {
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    left: 30px;
+    top: 150px;
+    z-index: 999;
+}
+
+#control {
+    width: 100%;
+    height: 60px;
+}
+
+#book {
+    width: 570px;
+    height: 700px;
+    perspective: 2500px;
+    transition: 1s;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page_project {
+    position: absolute;
+    width: 570px;
+    height: 700px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transform-origin: center left;
+    right: 0;
+}
+
+h1 {
+    color: #0b0047;
+    text-align: center;
+    margin: 0px 0px 16px 0px;
+}
+
+.page_side_left,
+.page_side_right {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    height: 700px;
+}
+
+.page_side_left {
+    background-color: #fdfdfd;
+    /* IE9, iOS 3.2+ */
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMDAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjAlIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMC45MjQiLz48c3RvcCBzdG9wLWNvbG9yPSIjZDNkM2QzIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMSIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCN2c2dnKSIgLz48L3N2Zz4=);
+    background-image: -webkit-gradient(linear, 100% 0%, 0% 0%, color-stop(0.924, rgb(238, 238, 238)), color-stop(1, rgb(211, 211, 211)));
+    /* Android 2.3 */
+    background-image: -webkit-linear-gradient(right, rgb(238, 238, 238) 92.4%, rgb(211, 211, 211) 100%);
+    /* IE10+ */
+    background-image: linear-gradient(to left, rgb(238, 238, 238) 92.4%, rgb(211, 211, 211) 100%);
+}
+
+.page_side_right {
+    transform-origin: center center;
+    transform: rotateY(180deg);
+
+    background-color: #fdfdfd;
+    /* IE9, iOS 3.2+ */
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMDAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjAlIj48c3RvcCBzdG9wLWNvbG9yPSIjZDNkM2QzIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwLjA4Ii8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI3ZzZ2cpIiAvPjwvc3ZnPg==);
+    background-image: -webkit-gradient(linear, 100% 0%, 0% 0%, color-stop(0, rgb(211, 211, 211)), color-stop(0.08, rgb(238, 238, 238)));
+    /* Android 2.3 */
+    background-image: -webkit-linear-gradient(right, rgb(211, 211, 211) 0%, rgb(238, 238, 238) 8%);
+    /* IE10+ */
+    background-image: linear-gradient(to left, rgb(211, 211, 211) 0%, rgb(238, 238, 238) 8%);
+    background-image: -ms-linear-gradient(right, rgb(211, 211, 211) 0%, rgb(238, 238, 238) 8%);
+
+}
+
+.working_area {
+    padding: 50px;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 50px; */
+}
+
+.working_area img {
+    width: 90%;
+}
+
+.page_side_left p.texts,
+.page_side_right p.texts {
+    font-size: 28px;
+    color: #0b0047;
+    text-align: justify;
+    display: block;
+    margin: 0;
+}
+
+p.markletter:first-letter {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 120%;
+    color: red;
+}
+
+p.poems {
+    text-align: center;
+    font-style: italic;
+    font-size: 28px;
+    color: #0b0047;
+    display: block;
+    margin: 0;
+}
+
+
+.picture_article {
+    width: 100%;
+    height: 100%;
+}
+
+.picture_book {
+    width: calc(100% - 30px);
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    margin-left: -2px;
+    margin-top: -2px;
+    background-color: #0A3640;
+    background-image: url('images/83edc54b6795f44cb4968383e62bb89c\ \(1\).svg');
+    background-blend-mode: hard-light;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.area_menu-main {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.area_menu-main li {
+    min-width: 140px;
+    display: inline-block;
+    font-size: 24px;
+}
+
+/* Настраиваем оформление пунктов меню */
+.area_menu-main li a {
+    display: block;
+    font-size: .9em;
+    color: #eee;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.area_menu-main li>a:hover {
+    color: #0b0047;
+}
+
+
+.first_page {
+    display: flex;
+}
+
+.first_page img {
+    width: 100%;
+    height: 100%;
+}
+
+.crust {
+    background-image: url(images/83edc54…\ \(1\).svg);
+    background-blend-mode: hard-light;
+    background-color: #0A3640;
+    width: 30px;
+}
